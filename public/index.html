@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <meta name="description" content="Search for coffee shops near you or in another city! Find My Coffee is a responsive website utilizing data from third party APIs (Google Maps and Yelp) to present useful search results relating to coffee shops.">
+      <title>Find My Coffee</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+      <link href="index.css" rel="stylesheet" type="text/css"/>
+  </head>
+
+
+  <body>
+
+    <main role="main" aria-live="assertive">
+
+      <div class="display-start" id="start-page">
+        <header class="row" role="banner">
+          <h1 class="logo">find my coffee</h1>
+          <p>Fuel up on caffeine at your nearest coffee shop or search for coffee shops in other cities!</p>
+        </header>
+
+        <form action="#" class="search-form" id="search-query-form">
+          <input type="text" placeholder="Enter a city" class="search-query" id="search-term" required>
+          <!-- <input id="pac-input" class="controls" type="text" -->
+                  <!-- placeholder="Enter a location" required> -->
+              <button type="button" class="submit-button">Search</button>
+              <!-- <div id="map"></div>
+              <div id="infowindow-content">
+                <span id="place-name"  class="title"></span>
+                <span id="place-id"></span>
+                <span id="place-address"></span>
+              </div> -->
+          <!-- <button type="button" class="submit-button">Search</button> -->
+        </form>
+      </div>
+      <div id="yelp-results"></div>
+    </main>
+
+    <div id="map"></div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.1.0.js"></script> -->
+    <script src="index.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDM8sqSYtpulgKyyRtOfIEJgw__RBzR3dk&libraries=places&callback=autoComplete" async defer></script>
+  </body>
+
+</html>

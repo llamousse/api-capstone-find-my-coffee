@@ -1,0 +1,112 @@
+/* GOOGLE MAPS */
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* BEGIN DISPLAY - BODY */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comfortaa';
+  background: url("./images/coffeeshop.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.hide {
+	display: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+/** START DISPLAY - MOBILE **/
+
+header p {
+	font-size: 15px;
+	text-align: center;
+}
+
+header {
+	background-color: rgba(229, 231, 233, 0.7); /* #E5E7E9 */
+	padding: 10px;
+	border-radius: 15px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.display-start {
+	height: 100vh;
+	padding-top: 200px;
+	margin-bottom: 40px;
+}
+
+h1.logo {
+	font-family: 'Sacramento', cursive;
+	font-size: 60px;
+	text-align: center;
+}
+
+form {
+	padding: 15px;
+	margin: 0 auto;
+  text-align: center;
+	/* width: 80%; */
+}
+
+form input {
+	height: 45px;
+	width: 250px;
+  padding: 10px;
+  border: 0px;
+	border-radius: 5px;
+	/* box-shadow: 0 0 3px;
+	margin-left: -3px;
+	border: 0px;
+	padding: 0px 0px 0px 5px; */
+}
+
+form input:focus {
+  outline: 0;
+}
+
+form button {
+	height: 45px;
+	width: 100px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 20px;
+	background: #E5E7E9;
+}
+
+form button:focus {
+  outline: 0;
+}
+
+form button:hover {
+	background-color: #800020;
+	color: white;
+  cursor: pointer;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media screen and (min-width: 640px) {
+	form button {
+		margin-left: 10px;
+	}
+}
