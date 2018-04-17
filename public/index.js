@@ -110,11 +110,11 @@ function getDataFromApi(searchTerm, callback) {
   $.ajax(settings);
 }
 
-function renderResult(item) {
+function renderResult(business) {
   var resultShops = `
     <div>
       <h2>
-        <a class="js-result-business" href= "${item.businesses.name}"></a>
+        <a class="js-result-business" href= "${business.url}">${business.name}</a>
       </h2>
     </div>
     `;
@@ -123,18 +123,14 @@ function renderResult(item) {
 }
 
 function displayYelpSearchData(data) {
-  // console.log("yes");
-  // var results = "";
-  // for (var i = 0; i < data.item.length; i++) {
-  //   console.log("still works");
-  //   var items = data.item[i];
-  //   console.log(items);
-  //   var renderedItem = renderResult(items);
-  //   results += renderedItem;
-  // }
-  // $('.js-yelp-results').html(results);
-
-// Uncaught TypeError: Cannot read property 'length' of undefined
+  var results = "";
+  for (var i = 0; i < data.businesses.length; i++) {
+    var business = data.businesses[i];
+    console.log(business);
+    var renderedItem = renderResult(business);
+    results += renderedItem;
+  }
+  $('.js-yelp-results').html(results);
 
 }
 
