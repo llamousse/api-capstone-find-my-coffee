@@ -110,11 +110,6 @@ function getDataFromApi(searchTerm, callback) {
   $.ajax(settings);
 }
 
-function displayYelpSearchData(data) {
-  console.log("success");
-  console.log(data);
-}
-
 function renderResult(item) {
   var resultShops = `
     <div>
@@ -123,10 +118,25 @@ function renderResult(item) {
       </h2>
     </div>
     `;
-    console.log(item);
+    // console.log(item);
   return resultShops;
 }
 
+function displayYelpSearchData(data) {
+  // console.log("yes");
+  // var results = "";
+  // for (var i = 0; i < data.item.length; i++) {
+  //   console.log("still works");
+  //   var items = data.item[i];
+  //   console.log(items);
+  //   var renderedItem = renderResult(items);
+  //   results += renderedItem;
+  // }
+  // $('.js-yelp-results').html(results);
+
+// Uncaught TypeError: Cannot read property 'length' of undefined
+
+}
 
 function coffeeSearch() {
   $('.search-form').on('click', '.submit-button', function (event) {
