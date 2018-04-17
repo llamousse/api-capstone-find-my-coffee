@@ -1,5 +1,4 @@
 const YELP_SEARCH_URL = 'http://localhost:3000/asd';
-
 // Autocomplete search location in form
 function autoComplete() {
   let options = {
@@ -92,13 +91,13 @@ function autoComplete() {
 //   </div>`
 // }
 
-function getDataFromApi(searchTerm, callback) {
+function getDataFromApi(lat, lng, callback) {
   console.log("hi");
   const settings = {
     url: YELP_SEARCH_URL,
     data: {
-      latitude: 34.048297,
-      longitude: -118.239825
+      latitude: lat,
+      longitude: lng
     },
     dataType: 'json',
     type: 'GET',
@@ -126,27 +125,50 @@ function displayYelpSearchData(data) {
   var results = "";
   for (var i = 0; i < data.businesses.length; i++) {
     var business = data.businesses[i];
-    console.log(business);
+    // console.log(business);
     var renderedItem = renderResult(business);
     results += renderedItem;
+
+//add markers - change var to let
+
   }
   $('.js-yelp-results').html(results);
 
+
+}
+
+function getLatLong(locationString) {
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode( { 'address': locationString}, function(results, status) {
+      if (status == 'OK') {
+        // map.setCenter(results[0].geometry.location);
+        // var marker = new google.maps.Marker({
+        //     map: map,
+        //     position: results[0].geometry.location
+        // });
+        var lat = results[0].geometry.location.lat();
+        var lng = results[0].geometry.location.lng();
+        console.log(lat, lng);
+        getDataFromApi(lat, lng, displayYelpSearchData);
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
 }
 
 function coffeeSearch() {
   $('.search-form').on('click', '.submit-button', function (event) {
     event.preventDefault();
-    $('.display-start').remove();
     // $('#yelp-results').html("");
     // $('#map').html("");
     // initMap();
     // getYelpData();
     // getGoogleMapsData();
-    const queryTarget = $(event.currentTarget).find('.js-query');
-    const query = queryTarget.val();
+    const queryTarget = $('.search-query');
+    const locationString = queryTarget.val();
+    getLatLong(locationString);
     queryTarget.val("");
-    getDataFromApi(query, displayYelpSearchData);
+    $('.display-start').remove();
   });
 }
 
