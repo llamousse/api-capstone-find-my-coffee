@@ -110,7 +110,7 @@ function getDataFromApi(lat, lng, callback) {
 }
 
 function renderResult(business) {
-  var resultShops = `
+  let resultShops = `
     <div>
       <h2>
         <a class="js-result-business" href= "${business.url}">${business.name}</a>
@@ -122,11 +122,11 @@ function renderResult(business) {
 }
 
 function displayYelpSearchData(data) {
-  var results = "";
-  for (var i = 0; i < data.businesses.length; i++) {
-    var business = data.businesses[i];
+  let results = "";
+  for (let i = 0; i < data.businesses.length; i++) {
+    let business = data.businesses[i];
     // console.log(business);
-    var renderedItem = renderResult(business);
+    let renderedItem = renderResult(business);
     results += renderedItem;
 
 //add markers - change var to let
@@ -138,7 +138,7 @@ function displayYelpSearchData(data) {
 }
 
 function getLatLong(locationString) {
-  var geocoder = new google.maps.Geocoder();
+  let geocoder = new google.maps.Geocoder();
   geocoder.geocode( { 'address': locationString}, function(results, status) {
       if (status == 'OK') {
         // map.setCenter(results[0].geometry.location);
@@ -146,8 +146,8 @@ function getLatLong(locationString) {
         //     map: map,
         //     position: results[0].geometry.location
         // });
-        var lat = results[0].geometry.location.lat();
-        var lng = results[0].geometry.location.lng();
+        let lat = results[0].geometry.location.lat();
+        let lng = results[0].geometry.location.lng();
         console.log(lat, lng);
         getDataFromApi(lat, lng, displayYelpSearchData);
       } else {
@@ -159,8 +159,6 @@ function getLatLong(locationString) {
 function coffeeSearch() {
   $('.search-form').on('click', '.submit-button', function (event) {
     event.preventDefault();
-    // $('#yelp-results').html("");
-    // $('#map').html("");
     // initMap();
     // getYelpData();
     // getGoogleMapsData();
