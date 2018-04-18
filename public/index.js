@@ -8,18 +8,17 @@ function autoComplete() {
   let autocomplete = new google.maps.places.Autocomplete(searchInput, options);
 }
 
-// var map;
-// function initMap() {
+// function initMap(lat, lng) {
 //   // Map options
-//   var options = {
+//   let options = {
 //     zoom: 13,
-//     center: {lat: 34.0522, lng: -118.2437},
+//     center: {lat: lat, lng: lng},
 //   }
 //
 //   // New map
-//   var map = new google.maps.Map(document.getElementById('map'), options);
-//
-//   // Array of markers
+//   let map = new google.maps.Map(document.getElementById('map'), options);
+// }
+//   Array of markers
 //   var markers = [
 //     {
 //       coords: {lat: 34.0523, lng: -118.2395},
@@ -33,7 +32,7 @@ function autoComplete() {
 //
 //   ];
 //
-//   // Loop through markers
+//   Loop through markers
 //   for(var i = 0; i < markers.length; i++) {
 //     // Add marker
 //     addMarker(markers[i]);
@@ -67,30 +66,6 @@ function autoComplete() {
 //   }
 // }
 
-// retrieve data from Yelp API
-// function getYelpData() {
-//   let city = $('.search-query').val();
-//   $.ajax(YELP_SEARCH_URL, {
-//     data: {
-//       q: city
-//     },
-//     dataType: 'json',
-//     type: 'GET',
-//     success: function(data) {
-//         let widget = displayYelp(data);
-//         $('#yelp-results').html(widget);
-//     }
-//   });
-// }
-//
-// function displayYelp(data) {
-//   console.log(data);
-//   return `
-//   <div class="yelp-search-results">
-//     <p>${data.businesses.name}</p>
-//   </div>`
-// }
-
 function getDataFromApi(lat, lng, callback) {
   console.log("hi");
   const settings = {
@@ -109,33 +84,40 @@ function getDataFromApi(lat, lng, callback) {
   $.ajax(settings);
 }
 
-function renderResult(business) {
-  let resultShops = `
-    <div>
-      <h2>
-        <a class="js-result-business" href= "${business.url}">${business.name}</a>
-      </h2>
-    </div>
-    `;
-    // console.log(item);
-  return resultShops;
+function renderGoogleMaps(lat, lng) {
+  let mapOptions = {
+    center: {lat: lat, lng: lng},
+    zoom: 12,
+    zoomControl: true
+  };
+  let map = new google.maps.Map(document.getElementById('map'), mapOptions);
 }
 
-function displayYelpSearchData(data) {
-  let results = "";
-  for (let i = 0; i < data.businesses.length; i++) {
-    let business = data.businesses[i];
-    // console.log(business);
-    let renderedItem = renderResult(business);
-    results += renderedItem;
+// function renderResult(business) {
+//   let resultShops = `
+//     <div>
+//       <h2>
+//         <a class="js-result-business" href= "${business.url}">${business.name}</a>
+//       </h2>
+//     </div>
+//     `;
+//     // console.log(item);
+//   return resultShops;
+// }
 
-//add markers - change var to let
+// function displayYelpSearchData(data) {
+//   let results = "";
+//   for (let i = 0; i < data.businesses.length; i++) {
+//     let business = data.businesses[i];
+//     // console.log(business);
+//     let renderedItem = renderResult(business);
+//     results += renderedItem;
+//
+// //add markers
+//   }
+//   $('.js-yelp-results').html(results);
+// }
 
-  }
-  $('.js-yelp-results').html(results);
-
-
-}
 
 function getLatLong(locationString) {
   let geocoder = new google.maps.Geocoder();
@@ -149,7 +131,8 @@ function getLatLong(locationString) {
         let lat = results[0].geometry.location.lat();
         let lng = results[0].geometry.location.lng();
         console.log(lat, lng);
-        getDataFromApi(lat, lng, displayYelpSearchData);
+        renderGoogleMaps(lat, lng);
+        // getDataFromApi(lat, lng, displayYelpSearchData);
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
       }
@@ -159,7 +142,6 @@ function getLatLong(locationString) {
 function coffeeSearch() {
   $('.search-form').on('click', '.submit-button', function (event) {
     event.preventDefault();
-    // initMap();
     // getYelpData();
     // getGoogleMapsData();
     const queryTarget = $('.search-query');
