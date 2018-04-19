@@ -116,7 +116,8 @@ function displayYelpSearchData(data) {
     // ADD MARKER
     let marker = new google.maps.Marker({
       position: {lat: busLat, lng: busLng},
-      map: map
+      map: map,
+      title: data.businesses[i].name
     });
 
     // console.log(business);
@@ -125,7 +126,6 @@ function displayYelpSearchData(data) {
     // let contentString = '<div id="data-yelp">' +
       // '<h1 class=businessName">' + data.businesses[i].name + '</h1></div>';
     // console.log(contentString);
-
   }
   // $('.js-yelp-results').html(results);
 }
