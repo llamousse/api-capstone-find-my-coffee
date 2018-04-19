@@ -30,13 +30,6 @@ function autoComplete() {
 //     addMarker(markers[i]);
 //   }
 //
-//   // Add Marker Function
-//   function addMarker(props){
-//     var marker = new google.maps.Marker({
-//       position: props.coords,
-//       map: map,
-//       // icon: props.iconImage
-//     });
 //
 //     // Check for custom icon
 //     if(props.iconImage){
@@ -82,15 +75,6 @@ function renderGoogleMaps(lat, lng) {
     zoomControl: true
   };
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-
-}
-
-function createMarker(busLat, busLng) {
-  let marker = new google.maps.Marker({
-    position: {lat: busLat, lng: busLng},
-    map: map
-  });
 }
 
 // function renderResult(business) {
@@ -109,9 +93,14 @@ function createMarker(busLat, busLng) {
 function displayYelpSearchData(data) {
   let results = "";
   for (let i = 0; i < data.businesses.length; i++) {
+
     let business = data.businesses[i];
     let busLat = data.businesses[i].coordinates.latitude;
     let busLng = data.businesses[i].coordinates.longitude;
+
+
+
+    console.log(business);
 
     // ADD MARKER
     let marker = new google.maps.Marker({
@@ -120,12 +109,29 @@ function displayYelpSearchData(data) {
       title: data.businesses[i].name
     });
 
+    let contentString = '<div id="data-content">' +
+      '<div id="businessInfo"</div>' +
+      '<h1 class=businessName">' + data.businesses[i].name + '</h1></div>' +
+      '<a class="logo" href="'+ data.businesses[i].url +'">' +
+      '<img src="'+ data.businesses[i].image_url +'" alt=""' + '</a>' +
+      '<p class="bodyContent">' + data.businesses[i].price + '</p>' +
+      '<p>Rating: ' + data.businesses[i].rating + '/5</p>' +
+      '<p>Contact Business: ' + data.businesses[i].display_phone + '</p>' +
+      '<p>Address: ' + data.businesses[i].location.display_address + '</p>'
+      ;
+
+    // ADD INFOWINDOW
+    let infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    marker.addListener('click', function(){
+      infowindow.open(map, marker);
+    });
+
     // console.log(business);
     // let renderedItem = renderResult(business);
     // results += renderedItem;
-    // let contentString = '<div id="data-yelp">' +
-      // '<h1 class=businessName">' + data.businesses[i].name + '</h1></div>';
-    // console.log(contentString);
   }
   // $('.js-yelp-results').html(results);
 }
@@ -135,20 +141,16 @@ function getLatLong(locationString) {
   let geocoder = new google.maps.Geocoder();
   geocoder.geocode( { 'address': locationString}, function(results, status) {
       if (status == 'OK') {
-
         // map.setCenter(results[0].geometry.location);
         // var marker = new google.maps.Marker({
         //     map: map,
         //     position: results[0].geometry.location
         // });
-
         let lat = results[0].geometry.location.lat();
         let lng = results[0].geometry.location.lng();
         console.log(lat, lng);
         getDataFromApi(lat, lng, displayYelpSearchData);
         renderGoogleMaps(lat, lng);
-        // renderMarkers(lat, lng);
-
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
       }
