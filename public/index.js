@@ -107,23 +107,20 @@ function displayYelpSearchData(data) {
     let marker = new google.maps.Marker({
       position: {lat: busLat, lng: busLng},
       map: map,
-      title: data.businesses[i].name
+      title: business.name
     });
 
-    let contentString = '<div id="data-content">' +
-      '<div id="businessInfo"</div>' +
-      '<h1 class=businessName">' + data.businesses[i].name + '</h1></div>' +
-      '<a class="logo" href="'+ data.businesses[i].url +'">' +
-      '<img src="'+ data.businesses[i].image_url +'" alt=""' + '</a>' +
-      '<p class="bodyContent">' + data.businesses[i].price + '</p>' +
-      '<p>Rating: ' + data.businesses[i].rating + '/5</p>' +
-      '<p>Contact Business: ' + data.businesses[i].display_phone + '</p>' +
-      '<p>Address: ' + data.businesses[i].location.address1 + "" +
-      data.businesses[i].location.city + ", " +
-      data.businesses[i].location.display_address.state +
-      data.businesses[i].location.display_address.zip_code + '</p>'
-
-      // '<p>Address: ' + data.businesses[i].location.display_address + '</p>'
+    let contentString = `
+      <div id="business-info">
+        <h1 class=business-name">${business.name}</h1>
+        <a class="logo" href="${business.url}">
+        <img class="business-pic" src="${business.image_url}" alt="" ></a>
+        <p class="body-content">${business.price}</p>
+        <p>Rating: ${business.rating}/5</p>
+        <p>Contact Business: ${business.display_phone}</p>
+        <p>Address: ${business.location.display_address.join(", ")}</p>
+      </div>
+      `
       ;
 
     // ADD INFOWINDOW
