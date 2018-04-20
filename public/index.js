@@ -1,6 +1,7 @@
 const YELP_SEARCH_URL = 'http://localhost:3000/asd';
 // Autocomplete search location in form
 var map;
+var infoWindow;
 
 function autoComplete() {
   let options = {
@@ -117,15 +118,21 @@ function displayYelpSearchData(data) {
       '<p class="bodyContent">' + data.businesses[i].price + '</p>' +
       '<p>Rating: ' + data.businesses[i].rating + '/5</p>' +
       '<p>Contact Business: ' + data.businesses[i].display_phone + '</p>' +
-      '<p>Address: ' + data.businesses[i].location.display_address + '</p>'
+      '<p>Address: ' + data.businesses[i].location.address1 + "" +
+      data.businesses[i].location.city + ", " +
+      data.businesses[i].location.display_address.state +
+      data.businesses[i].location.display_address.zip_code + '</p>'
+
+      // '<p>Address: ' + data.businesses[i].location.display_address + '</p>'
       ;
 
     // ADD INFOWINDOW
-    let infowindow = new google.maps.InfoWindow({
-      content: contentString
-    });
+    // infowindow = new google.maps.InfoWindow({
+    //   content: contentString
+    // });
 
     marker.addListener('click', function(){
+      infowindow.setContent(contentString);
       infowindow.open(map, marker);
     });
 
@@ -160,13 +167,17 @@ function getLatLong(locationString) {
 function coffeeSearch() {
   $('.search-form').on('click', '.submit-button', function (event) {
     event.preventDefault();
-    // getYelpData();
-    // getGoogleMapsData();
+
     const queryTarget = $('.search-query');
     const locationString = queryTarget.val();
     getLatLong(locationString);
     queryTarget.val("");
     $('.display-start').remove();
+
+    infowindow = new google.maps.InfoWindow({
+      content: "__"
+    });
+
   });
 }
 
