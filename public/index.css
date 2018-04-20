@@ -2,13 +2,22 @@
 
 #map {
   height: 100%;
-  width: 100%;
+  width: 70%;
 }
 
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+#side-bar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 30%;
+  background-color: white;
 }
 
 /* BEGIN DISPLAY - BODY */

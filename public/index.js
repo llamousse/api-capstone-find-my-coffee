@@ -120,13 +120,7 @@ function displayYelpSearchData(data) {
         <p>Contact Business: ${business.display_phone}</p>
         <p>Address: ${business.location.display_address.join(", ")}</p>
       </div>
-      `
-      ;
-
-    // ADD INFOWINDOW
-    // infowindow = new google.maps.InfoWindow({
-    //   content: contentString
-    // });
+      `;
 
     marker.addListener('click', function(){
       infowindow.setContent(contentString);
