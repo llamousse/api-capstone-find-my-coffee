@@ -1,8 +1,8 @@
 const YELP_SEARCH_URL = 'http://localhost:3000/asd';
-// Autocomplete search location in form
-var map;
-var infoWindow;
 
+var map, infoWindow;
+
+// Autocomplete search location in form
 function autoComplete() {
   let options = {
     types: ['(regions)']
@@ -10,46 +10,6 @@ function autoComplete() {
   let searchInput = document.getElementById('search-term');
   let autocomplete = new google.maps.places.Autocomplete(searchInput, options);
 }
-// function initMap(lat, lng) {
-//   Array of markers
-//   var markers = [
-//     {
-//       coords: {lat: 34.0523, lng: -118.2395},
-//       iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-//       content: '<h1>Little Tokyo</h1>'
-//     },
-//     {
-//       coords: {lat: 34.0407, lng: -118.2468},
-//       content: '<h1>Downtown</h1>'
-//     }
-//
-//   ];
-//
-//   Loop through markers
-//   for(var i = 0; i < markers.length; i++) {
-//     // Add marker
-//     addMarker(markers[i]);
-//   }
-//
-//
-//     // Check for custom icon
-//     if(props.iconImage){
-//       // Set icon image
-//       marker.setIcon(props.iconImage);
-//     }
-//
-//     // Check content
-//     if(props.content) {
-//       var infoWindow = new google.maps.InfoWindow({
-//         content: props.content
-//       });
-//
-//       marker.addListener('click', function(){
-//         infoWindow.open(map, marker);
-//       });
-//     }
-//   }
-// }
 
 function getDataFromApi(lat, lng, callback) {
   console.log("hi");
@@ -99,8 +59,6 @@ function displayYelpSearchData(data) {
     let busLat = data.businesses[i].coordinates.latitude;
     let busLng = data.businesses[i].coordinates.longitude;
 
-
-
     console.log(business);
 
     // ADD MARKER
@@ -139,11 +97,6 @@ function getLatLong(locationString) {
   let geocoder = new google.maps.Geocoder();
   geocoder.geocode( { 'address': locationString}, function(results, status) {
       if (status == 'OK') {
-        // map.setCenter(results[0].geometry.location);
-        // var marker = new google.maps.Marker({
-        //     map: map,
-        //     position: results[0].geometry.location
-        // });
         let lat = results[0].geometry.location.lat();
         let lng = results[0].geometry.location.lng();
         console.log(lat, lng);
@@ -158,12 +111,12 @@ function getLatLong(locationString) {
 function coffeeSearch() {
   $('.search-form').on('click', '.submit-button', function (event) {
     event.preventDefault();
-
     const queryTarget = $('.search-query');
     const locationString = queryTarget.val();
     getLatLong(locationString);
     queryTarget.val("");
     $('.display-start').remove();
+    $('#side-bar').removeClass('hidden');
 
     infowindow = new google.maps.InfoWindow({
       content: "__"
