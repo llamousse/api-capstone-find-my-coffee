@@ -14,6 +14,8 @@ html, body {
   padding: 0;
 }
 
+/* SIDE BAR */
+
 #side-bar {
   position: fixed;
   left: 0;
@@ -21,6 +23,11 @@ html, body {
   bottom: 0;
   width: 25%;
   background-color: #E5E7E9;
+}
+
+.side-bar-content{
+  text-decoration: none;
+  font-size: auto;
 }
 
 /* BEGIN DISPLAY - BODY */

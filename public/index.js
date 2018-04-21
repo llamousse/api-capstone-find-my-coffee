@@ -32,24 +32,24 @@ function getDataFromApi(lat, lng, callback) {
 function renderGoogleMaps(lat, lng) {
   let mapOptions = {
     center: {lat: lat, lng: lng},
-    zoom: 14,
+    zoom: 14.5,
     zoomControl: true
   };
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
 }
 
-// function renderResult(business) {
-//
-//   let resultShops = `
-//     <div>
-//       <h2>
-//         <a class="js-result-business" href= "${business.url}">${business.name}</a>
-//       </h2>
-//     </div>
-//     `;
-//     console.log(business);
-//   return resultShops;
-// }
+function renderResult(business) {
+
+  let resultShops = `
+    <div>
+      <h2>
+        <a href= "${business.url}">${business.name}</a>
+      </h2>
+    </div>
+    `;
+    // console.log(business);
+  return resultShops;
+}
 
 function displayYelpSearchData(data) {
   let results = "";
@@ -59,7 +59,7 @@ function displayYelpSearchData(data) {
     let busLat = data.businesses[i].coordinates.latitude;
     let busLng = data.businesses[i].coordinates.longitude;
 
-    console.log(business);
+    // console.log(business);
 
     // ADD MARKER
     let marker = new google.maps.Marker({
@@ -85,11 +85,11 @@ function displayYelpSearchData(data) {
       infowindow.open(map, marker);
     });
 
-    // console.log(business);
-    // let renderedItem = renderResult(business);
-    // results += renderedItem;
+    // DISPLAY TO SIDE BAR
+    let renderedItem = renderResult(business);
+    results += renderedItem;
   }
-  // $('.js-yelp-results').html(results);
+  $('.side-bar-content').html(results);
 }
 
 
