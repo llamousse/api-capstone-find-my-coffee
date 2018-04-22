@@ -32,10 +32,20 @@ function getDataFromApi(lat, lng, callback) {
 function renderGoogleMaps(lat, lng) {
   let mapOptions = {
     center: {lat: lat, lng: lng},
-    zoom: 14.5,
+    zoom: 14.2,
     zoomControl: true
   };
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
+}
+
+//////////////////////////////////////
+
+function renderTitle() {
+  let sideBarTitle = `
+    <h1 class="side-bar-title">find my coffee</h1>
+  `;
+  
+  return sideBarTitle;
 }
 
 function renderResult(business) {
@@ -84,9 +94,11 @@ function displayYelpSearchData(data) {
     });
 
     // DISPLAY TO SIDE BAR
+    // results
     let renderedItem = renderResult(business);
     results += renderedItem;
   }
+  $('.title-content').html(renderTitle());
   $('.text-content').html(results);
 }
 
