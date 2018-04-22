@@ -2,9 +2,9 @@
 
 #map {
   height: 100%;
-  width: 75%;
+  width: 80%;
   position: fixed;
-  left: 25%;
+  left: 20%;
 
 }
 
@@ -21,14 +21,15 @@ html, body {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 25%;
+  width: 20%;
   background-color: #E5E7E9;
   overflow: scroll;
 }
 
-.side-bar-content{
-  text-decoration: none;
-  font-size: auto;
+.text-content {
+  padding: 20px;
+  font-family: 'Gothic A1', sans-serif;
+  font-size: 11px;
 }
 
 /* BEGIN DISPLAY - BODY */

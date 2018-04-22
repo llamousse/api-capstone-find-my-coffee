@@ -39,15 +39,12 @@ function renderGoogleMaps(lat, lng) {
 }
 
 function renderResult(business) {
-
   let resultShops = `
-    <div>
-      <h2>
-        <a href= "${business.url}">${business.name}</a>
-      </h2>
+    <div class="side-bar-content">
+      <h2>${business.name}</h2>
     </div>
     `;
-    // console.log(business);
+
   return resultShops;
 }
 
@@ -71,8 +68,9 @@ function displayYelpSearchData(data) {
     let contentString = `
       <div id="business-info">
         <h1 class=business-name">${business.name}</h1>
-        <a class="logo" href="${business.url}">
-        <img class="business-pic" src="${business.image_url}" alt="" ></a>
+        <a class="logo" href="${business.url}" onclick="window.open(this.href);
+        return false;" onkeypress="window.open(this.href); return false;">
+        <img class="business-pic" src="${business.image_url}" alt=""></a>
         <p class="body-content">${business.price}</p>
         <p>Rating: ${business.rating}/5</p>
         <p>Contact Business: ${business.display_phone}</p>
@@ -89,7 +87,7 @@ function displayYelpSearchData(data) {
     let renderedItem = renderResult(business);
     results += renderedItem;
   }
-  $('.side-bar-content').html(results);
+  $('.text-content').html(results);
 }
 
 

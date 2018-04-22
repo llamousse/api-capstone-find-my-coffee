@@ -9,6 +9,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
       <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Gothic+A1:300" rel="stylesheet">
       <link href="index.css" rel="stylesheet" type="text/css"/>
   </head>
 
@@ -24,16 +25,20 @@
 
         <form action="#" class="search-form" id="search-query-form">
           <input type="text" placeholder="Enter a city" class="search-query" id="search-term" required>
-          <!-- <input id="pac-input" class="controls" type="text" -->
-                  <!-- placeholder="Enter a location" required> -->
               <button type="button" class="submit-button">Search</button>
         </form>
       </div>
     </main>
 
-    <div class="side-bar-content hidden" id="side-bar"></div>
+    <!-- <div class="side-bar-content"> -->
+      <!-- <div class="hidden side-bar-content" id="side-bar"></div> -->
+        <!-- <hr class="side-bar-content"> -->
+    <!-- </div> -->
+    <div class="hidden side-bar-content" id="side-bar">
+      <h1 class="text-content"></h1>
+    </div>
+
     <div id="map"></div>
-    <!-- <div id="yelp-results" class="js-yelp-results"></div> -->
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDM8sqSYtpulgKyyRtOfIEJgw__RBzR3dk&libraries=places&callback=autoComplete" async defer></script>
