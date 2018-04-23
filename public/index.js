@@ -7,6 +7,7 @@ function autoComplete() {
   let options = {
     types: ['(regions)']
   };
+
   let searchInput = document.getElementById('search-term');
   let autocomplete = new google.maps.places.Autocomplete(searchInput, options);
 }
@@ -32,7 +33,7 @@ function getDataFromApi(lat, lng, callback) {
 function renderGoogleMaps(lat, lng) {
   let mapOptions = {
     center: {lat: lat, lng: lng},
-    zoom: 14.2,
+    zoom: 12.5,
     zoomControl: true
   };
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -41,12 +42,32 @@ function renderGoogleMaps(lat, lng) {
 //////////////////////////////////////
 
 function renderTitle() {
+
+  renderSearchAgain();
+
   let sideBarTitle = `
     <h1 class="side-bar-title">find my coffee</h1>
   `;
-  
+
   return sideBarTitle;
 }
+
+function renderSearchAgain() {
+  autoComplete();
+  $('.search-bar-form').on('click', '.submit-button', function (event) {
+    event.preventDefault();
+    const queryTarget = $('.search-bar-query');
+    const locationString = queryTarget.val();
+    getLatLong(locationString);
+    queryTarget.val("");
+
+    infowindow = new google.maps.InfoWindow({
+      content: "__"
+    });
+  });
+}
+
+////////////////////////////////////
 
 function renderResult(business) {
   let resultShops = `

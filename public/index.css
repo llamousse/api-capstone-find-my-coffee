@@ -42,6 +42,36 @@ html, body {
   margin: 0 auto;
 }
 
+.search-bar-form {
+  font-family: 'Gothic A1', sans-serif;
+  padding: 10px 20px 10px 20px;
+  text-align: center;
+}
+
+.search-bar-form input:focus {
+  outline: 0;
+}
+
+.search-bar-form button {
+	height: 18px;
+	width: 100px;
+  text-align: center;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 13px;
+	background: #E5E7E9;
+}
+
+.search-bar-form button:focus {
+  outline: 0;
+}
+
+.search-bar-form button:hover {
+	background-color: #800020;
+	color: white;
+  cursor: pointer;
+}
+
 /* BEGIN DISPLAY - BODY */
 
 * {
@@ -92,14 +122,16 @@ h1.logo {
 	text-align: center;
 }
 
-form {
+/* form { */
+form.search-form {
 	padding: 15px;
 	margin: 0 auto;
   text-align: center;
 	/* width: 80%; */
 }
 
-form input {
+/* form input { */
+form.search-form input {
 	height: 45px;
 	width: 250px;
   padding: 10px;
@@ -111,11 +143,11 @@ form input {
 	padding: 0px 0px 0px 5px; */
 }
 
-form input:focus {
+form.search-form input:focus {
   outline: 0;
 }
 
-form button {
+form.search-form button {
 	height: 45px;
 	width: 100px;
 	border-radius: 5px;
@@ -124,11 +156,11 @@ form button {
 	background: #E5E7E9;
 }
 
-form button:focus {
+form.search-form button:focus {
   outline: 0;
 }
 
-form button:hover {
+form.search-form button:hover {
 	background-color: #800020;
 	color: white;
   cursor: pointer;
@@ -143,7 +175,7 @@ form button:hover {
 /* RESPONSIVE DESIGN */
 
 @media screen and (min-width: 640px) {
-	form button {
+	form.search-form button {
 		margin-left: 10px;
 	}
 }
