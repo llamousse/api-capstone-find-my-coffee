@@ -24,23 +24,23 @@
         </header>
 
         <form action="#" class="search-form" id="search-query-form">
-          <input type="text" placeholder="Enter a city" class="search-query" id="search-term" required>
-              <button type="button" class="submit-button">Search</button>
+          <input type="text" placeholder="Enter a city" class="search-query" id="search-term" required />
+          <button type="submit" class="submit-button">Search</button>
         </form>
 
       </div>
     </main>
-    
-      <div class="hidden side-bar-content" id="side-bar">
-        <h1 class="title-content"></h2>
-        <form action="#" class="search-bar-form" id="search-bar-query">
-          <input type="text" placeholder="Enter a city" class="search-bar-query" id="search-term" required>
-              <button type="button" class="submit-button">Search</button>
-        </form>
-        <h2 class="text-content"></h2>
-      </div>
 
-      <div id="map"></div>
+    <div class="hidden side-bar-content" id="side-bar">
+      <h2 class="title-content"></h2>
+      <form action="#" class="search-bar-form" id="search-bar-query">
+        <input type="text" placeholder="Enter a city" class="search-bar-query" id="search-term" required />
+            <button type="submit" class="submit-button">Search</button>
+      </form>
+      <h2 class="text-content"></h2>
+    </div>
+
+    <div class="hidden" id="map"></div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDM8sqSYtpulgKyyRtOfIEJgw__RBzR3dk&libraries=places&callback=autoComplete" async defer></script>

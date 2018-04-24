@@ -33,7 +33,7 @@ function getDataFromApi(lat, lng, callback) {
 function renderGoogleMaps(lat, lng) {
   let mapOptions = {
     center: {lat: lat, lng: lng},
-    zoom: 12.5,
+    zoom: 12.8,
     zoomControl: true
   };
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -66,8 +66,6 @@ function renderSearchAgain() {
     });
   });
 }
-
-////////////////////////////////////
 
 function renderResult(business) {
   let resultShops = `
@@ -102,11 +100,11 @@ function displayYelpSearchData(data) {
         <a class="logo" href="${business.url}" onclick="window.open(this.href);
         return false;" onkeypress="window.open(this.href); return false;">
         <img class="business-pic" src="${business.image_url}" alt=""></a>
-        <p class="body-content">${business.price}</p>
+        <div class="body-content">${business.price}
         <p>Rating: ${business.rating}/5</p>
         <p>Contact Business: ${business.display_phone}</p>
         <p>Address: ${business.location.display_address.join(", ")}</p>
-      </div>
+      </div></div>
       `;
 
     marker.addListener('click', function(){
@@ -127,16 +125,16 @@ function displayYelpSearchData(data) {
 function getLatLong(locationString) {
   let geocoder = new google.maps.Geocoder();
   geocoder.geocode( { 'address': locationString}, function(results, status) {
-      if (status == 'OK') {
-        let lat = results[0].geometry.location.lat();
-        let lng = results[0].geometry.location.lng();
-        console.log(lat, lng);
-        getDataFromApi(lat, lng, displayYelpSearchData);
-        renderGoogleMaps(lat, lng);
-      } else {
-        alert('Geocode was not successful for the following reason: ' + status);
-      }
-    });
+    if (status == 'OK') {
+      let lat = results[0].geometry.location.lat();
+      let lng = results[0].geometry.location.lng();
+      console.log(lat, lng);
+      getDataFromApi(lat, lng, displayYelpSearchData);
+      renderGoogleMaps(lat, lng);
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
 }
 
 function coffeeSearch() {
@@ -147,12 +145,12 @@ function coffeeSearch() {
     getLatLong(locationString);
     queryTarget.val("");
     $('.display-start').remove();
+    $('#map').removeClass('hidden');
     $('#side-bar').removeClass('hidden');
 
     infowindow = new google.maps.InfoWindow({
       content: "__"
     });
-
   });
 }
 
