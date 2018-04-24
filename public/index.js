@@ -20,7 +20,9 @@ function autoComplete() {
   };
 
   let searchInput = document.getElementById("search-term");
-  let autocomplete = new google.maps.places.Autocomplete(searchInput, options);
+  let searchInputNav = document.getElementById("search-term-nav");
+  new google.maps.places.Autocomplete(searchInput, options);
+  new google.maps.places.Autocomplete(searchInputNav, options);
 }
 
 function coffeeSearch() {
