@@ -2,6 +2,11 @@ const YELP_SEARCH_URL = 'http://localhost:3000/asd';
 
 var map, infoWindow;
 
+function init() {
+  autoComplete();
+  coffeeSearch();
+  renderSearchAgain();
+}
 // Autocomplete search location in form
 function autoComplete() {
   let options = {
@@ -41,20 +46,10 @@ function renderGoogleMaps(lat, lng) {
 
 //////////////////////////////////////
 
-function renderTitle() {
-
-  renderSearchAgain();
-
-  let sideBarTitle = `
-    <h1 class="side-bar-title">find my coffee</h1>
-  `;
-
-  return sideBarTitle;
-}
-
 function renderSearchAgain() {
-  autoComplete();
+  // autoComplete();
   $('.search-bar-form').on('click', '.submit-button', function (event) {
+    console.log("works");
     event.preventDefault();
     const queryTarget = $('.search-bar-query');
     const locationString = queryTarget.val();
@@ -100,11 +95,13 @@ function displayYelpSearchData(data) {
         <a class="logo" href="${business.url}" onclick="window.open(this.href);
         return false;" onkeypress="window.open(this.href); return false;">
         <img class="business-pic" src="${business.image_url}" alt=""></a>
-        <div class="body-content">${business.price}
-        <p>Rating: ${business.rating}/5</p>
-        <p>Contact Business: ${business.display_phone}</p>
-        <p>Address: ${business.location.display_address.join(", ")}</p>
-      </div></div>
+        <div class="body-content">
+          <p>${business.price}</p>
+          <p>Rating: ${business.rating}/5</p>
+          <p>Contact Business: ${business.display_phone}</p>
+          <p>Address: ${business.location.display_address.join(", ")}</p>
+        </div>
+      </div>
       `;
 
     marker.addListener('click', function(){
@@ -117,12 +114,13 @@ function displayYelpSearchData(data) {
     let renderedItem = renderResult(business);
     results += renderedItem;
   }
-  $('.title-content').html(renderTitle());
+  // $('.title-content').html(renderTitle());
   $('.text-content').html(results);
 }
 
 
 function getLatLong(locationString) {
+  console.log(locationString);
   let geocoder = new google.maps.Geocoder();
   geocoder.geocode( { 'address': locationString}, function(results, status) {
     if (status == 'OK') {
@@ -132,6 +130,8 @@ function getLatLong(locationString) {
       getDataFromApi(lat, lng, displayYelpSearchData);
       renderGoogleMaps(lat, lng);
     } else {
+      console.log(results);
+      console.log(status);
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
@@ -152,6 +152,7 @@ function coffeeSearch() {
       content: "__"
     });
   });
+
 }
 
-$(coffeeSearch);
+// $(coffeeSearch);
