@@ -1,4 +1,4 @@
-/* BEGIN DISPLAY - BODY */
+/*** BEGIN DISPLAY - BODY ***/
 
 * {
   box-sizing: border-box;
@@ -21,7 +21,7 @@ a {
 	text-decoration: none;
 }
 
-/** START DISPLAY - MOBILE **/
+/*** START DISPLAY ***/
 
 header p {
 	font-size: 15px;
@@ -52,7 +52,6 @@ form.search-form {
 	padding: 15px;
 	margin: 0 auto;
   text-align: center;
-	/* width: 80%; */
 }
 
 form.search-form input {
@@ -86,9 +85,18 @@ form.search-form button:hover {
   cursor: pointer;
 }
 
-/* INFOWINDOW */
-.business-info {
-  padding: 2px;
+/*** INFOWINDOW ***/
+
+div #business-info {
+  align-content: center;
+  width: 310px;
+}
+
+
+#business-info {
+  width: 50%;
+  margin-left: 50%;
+  left: -70px;
 }
 
 .business-pic {
@@ -107,125 +115,109 @@ form.search-form button:hover {
   width: 200px;
 }
 
-/* RESPONSIVE DESIGN */
-@media screen and (min-width: 320px) and (max-width: 674px) {
-  /* GOOGLE MAPS */
+/*** RESPONSIVE DESIGN ***/
+
+#map {
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#side-bar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #E5E7E9;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.title-content {
+  font-family: 'Sacramento', cursive;
+  text-align: center;
+  font-size: 45px;
+}
+
+.text-content {
+  padding: 5px 20px 10px 20px;
+  font-family: 'Gothic A1', sans-serif;
+  font-size: 11px;
+  margin-top: 10px;
+}
+
+.search-bar-form {
+  text-align: center;
+  padding: 5px;
+}
+
+.search-bar-form input {
+  font-family: 'Gothic A1', sans-serif;
+  padding: 5px;
+  border: 0px;
+  border-radius: 5px;
+}
+
+.search-bar-form input:focus {
+  outline: 0;
+}
+
+.search-bar-form button {
+	height: 28px;
+	width: 100px;
+  text-align: center;
+	border-radius: 5px;
+  margin-left: 5px;
+  padding: 8px;
+	font-size: 12px;
+	background: #E5E7E9;
+}
+
+.search-bar-form button:focus {
+  outline: 0;
+}
+
+.search-bar-form button:hover {
+	background-color: #800020;
+	color: white;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 320px) and (max-width: 727px) {
   #map {
-    height: 100%;
-    position: fixed;
     top: 50%;
-    overflow: hidden;
   }
 
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  /* SIDE BAR */
   #side-bar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
     bottom: 50%;
-    background-color: #E5E7E9;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-
-  .title-content {
-    font-family: 'Sacramento', cursive;
-    text-align: center;
-    padding: 10px 20px 0px 20px;
-    font-size: 20px;
-    margin: 0 auto;
-  }
-
-  .text-content {
-    padding: 5px 20px 10px 20px;
-    font-family: 'Gothic A1', sans-serif;
-    font-size: 11px;
-    margin-top: 10px;
-  }
-
-  .search-bar-form {
-    text-align: center;
-  }
-
-  .search-bar-form input {
-    font-family: 'Gothic A1', sans-serif;
-    padding: 5px;
-    border: 0px;
-    border-radius: 5px;
-  }
-
-  .search-bar-form input:focus {
-    outline: 0;
-  }
-
-  .search-bar-form button {
-  	height: 22px;
-  	width: 100px;
-    text-align: center;
-  	border-radius: 5px;
-  	margin-top: 10px;
-    padding: 5px;
-  	font-size: 12px;
-  	background: #E5E7E9;
-  }
-
-  .search-bar-form button:focus {
-    outline: 0;
-  }
-
-  .search-bar-form button:hover {
-  	background-color: #800020;
-  	color: white;
-    cursor: pointer;
   }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 640px) and (max-width: 727px) {
 	form.search-form button {
 		margin-left: 10px;
 	}
+
+  .search-bar-form input {
+    width: 40%;
+  }
 }
 
-@media screen and (min-width: 675px) and (max-width: 1023px) {
-  /* GOOGLE MAPS */
+@media screen and (min-width: 728px) {
   #map {
-    height: 100%;
     width: 70%;
-    position: fixed;
     left: 30%;
   }
 
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* SIDE BAR */
   #side-bar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
     width: 30%;
-    background-color: #E5E7E9;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-
-  .title-content {
-    font-family: 'Sacramento', cursive;
-    text-align: center;
-    padding: 10px 20px 0px 20px;
-    font-size: 20px;
-    margin: 0 auto;
   }
 
   .text-content {
@@ -235,276 +227,21 @@ form.search-form button:hover {
     margin-top: 10px;
   }
 
-  .search-bar-form {
-    text-align: center;
-  }
-
-  .search-bar-form input {
-    font-family: 'Gothic A1', sans-serif;
-    padding: 5px;
-    border: 0px;
-    border-radius: 5px;
-  }
-
   .search-bar-form button {
-  	height: 22px;
-  	width: 100px;
-    text-align: center;
-  	border-radius: 5px;
-  	margin-top: 10px;
-    padding: 5px;
-  	font-size: 12px;
-  	background: #E5E7E9;
-  }
-
-  .search-bar-form button:focus {
-    outline: 0;
-  }
-
-  .search-bar-form button:hover {
-    background-color: #800020;
-    color: white;
-    cursor: pointer;
+  	margin-top: 8px;
   }
 }
 
-@media screen and (min-width: 1024px) {
-  /* GOOGLE MAPS */
-  #map {
-    height: 100%;
-    width: 80%;
-    position: fixed;
-    left: 20%;
-  }
-
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* SIDE BAR */
-  #side-bar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 20%;
-    background-color: #E5E7E9;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-
-  .title-content {
-    font-family: 'Sacramento', cursive;
-    text-align: center;
-    padding: 10px 20px 0px 20px;
-    font-size: 20px;
-    margin: 0 auto;
-  }
-
-  .text-content {
-    padding: 5px 20px 10px 20px;
-    font-family: 'Gothic A1', sans-serif;
-    font-size: 11px;
-  }
-
-  .search-bar-form {
-    text-align: center;
-  }
-
-  .search-bar-form input {
-    font-family: 'Gothic A1', sans-serif;
-    padding: 5px;
-    border: 0px;
-    border-radius: 5px;
-  }
-
-  .search-bar-form input:focus {
-    outline: 0;
-  }
-
-  .search-bar-form button {
-  	height: 22px;
-  	width: 100px;
-    text-align: center;
-  	border-radius: 5px;
-  	margin-top: 10px;
-    padding: 5px;
-  	font-size: 12px;
-  	background: #E5E7E9;
-  }
-
-  .search-bar-form button:focus {
-    outline: 0;
-  }
-
-  .search-bar-form button:hover {
-  	background-color: #800020;
-  	color: white;
-    cursor: pointer;
-  }
-}
-
-/*FOR MOBILE - CREATED BEFORE */
-/* GOOGLE MAPS */
-
-/* #map {
-  height: 100%;
-  width: 80%;
+/* fixed position for side bar title & search */
+/* .title-content {
   position: fixed;
-  left: 20%;
-
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-} */
-
-/* SIDE BAR */
-
-/* #side-bar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 20%;
-  background-color: #E5E7E9;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-.title-content {
-  font-family: 'Sacramento', cursive;
-  text-align: center;
-  padding: 10px 20px 0px 20px;
-  font-size: 20px;
-  margin: 0 auto;
-}
-
-.text-content {
-  padding: 5px 20px 10px 20px;
-  font-family: 'Gothic A1', sans-serif;
-  font-size: 11px;
-  margin: 0 auto;
+  font-size: 45px;
+  padding: 10px;
+  margin: 20px 90px 20px 90px;
 }
 
 .search-bar-form {
-  text-align: center;
-}
-
-.search-bar-form input {
-  font-family: 'Gothic A1', sans-serif;
-  padding: 5px;
-  border: 0px;
-  border-radius: 5px;
-}
-
-.search-bar-form input:focus {
-  outline: 0;
-}
-
-.search-bar-form button {
-	height: 22px;
-	width: 100px;
-  text-align: center;
-	border-radius: 5px;
-	margin-top: 10px;
-  padding: 5px;
-	font-size: 12px;
-	background: #E5E7E9;
-}
-
-.search-bar-form button:focus {
-  outline: 0;
-}
-
-.search-bar-form button:hover {
-	background-color: #800020;
-	color: white;
-  cursor: pointer;
-} */
-
-
-/* GOOGLE MAPS */
-
-/* #map {
-  height: 100%;
-  width: 80%;
-  position: fixed;
-  left: 20%;
-
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-} */
-
-/* SIDE BAR */
-
-/* #side-bar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 20%;
-  background-color: #E5E7E9;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-.title-content {
-  font-family: 'Sacramento', cursive;
-  text-align: center;
-  padding: 10px 20px 0px 20px;
-  font-size: 20px;
-  margin: 0 auto;
-}
-
-.text-content {
-  padding: 5px 20px 10px 20px;
-  font-family: 'Gothic A1', sans-serif;
-  font-size: 11px;
-  margin: 0 auto;
-}
-
-.search-bar-form {
-  text-align: center;
-}
-
-.search-bar-form input {
-  font-family: 'Gothic A1', sans-serif;
-  padding: 5px;
-  border: 0px;
-  border-radius: 5px;
-}
-
-.search-bar-form input:focus {
-  outline: 0;
-}
-
-.search-bar-form button {
-	height: 22px;
-	width: 100px;
-  text-align: center;
-	border-radius: 5px;
-	margin-top: 10px;
-  padding: 5px;
-	font-size: 12px;
-	background: #E5E7E9;
-}
-
-.search-bar-form button:focus {
-  outline: 0;
-}
-
-.search-bar-form button:hover {
-	background-color: #800020;
-	color: white;
-  cursor: pointer;
+  padding: 70px;
+  position; fixed;
+  margin-top: 30px;
 } */

@@ -52,7 +52,7 @@ function displayResultsScreen() {
   $("#side-bar").removeClass("hidden");
 }
 
-////////////////////// API //////////////////////
+////////////////////// API /////////////////////////
 
 function getDataFromApi(lat, lng, callback) {
   const settings = {
@@ -80,7 +80,7 @@ function renderGoogleMaps(lat, lng) {
   map = new google.maps.Map(document.getElementById("map"), mapOptions);
 }
 
-////////////////////// Render //////////////////////
+////////////////////// RENDER ////////////////////////
 
 function renderResult(business) {
   return `
