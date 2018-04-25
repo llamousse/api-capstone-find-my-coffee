@@ -3,6 +3,7 @@ const YELP_SEARCH_URL = "http://localhost:3000/asd";
 var map, infoWindow;
 
 ////////////////////// SETUP //////////////////////
+// $('#search-term').attr('required', '');
 
 function init() {
   autoComplete();
@@ -145,6 +146,7 @@ function getLatLong(locationString) {
     } else {
       console.log(status);
       alert("Search failed, search for a different location");
+      location.reload();
     }
   });
 }
