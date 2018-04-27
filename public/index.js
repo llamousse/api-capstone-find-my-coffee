@@ -47,11 +47,10 @@ function renderSearchAgain() {
   });
 }
 
-$(".side-bar-content").click(function(e){
-
-  let index = $(event.currentTarget).attr("data-index")
+$("#side-bar").on ('click', '.side-bar-content', function(event) {
+  let index = $(event.currentTarget).attr("data-index");
   let marker = markers[index];
-
+  console.log(index);
   infowindow.setContent(marker.content);
   infowindow.open(map, marker);
   marker.setIcon('images/green-dot.png');
@@ -131,7 +130,7 @@ function createMarker(business) {
     map: map,
     title: business.name,
     icon: 'images/red-dot.png',
-    content: renderContentString(business);
+    content: renderContentString(business)
   });
 
 
