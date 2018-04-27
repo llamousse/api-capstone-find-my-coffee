@@ -1,7 +1,8 @@
 const YELP_SEARCH_URL = "http://localhost:3000/asd";
 
-var map, infoWindow;
-
+let map;
+let infoWindow;
+let markers = [];
 ////////////////////// SETUP //////////////////////
 // $('#search-term').attr('required', '');
 
@@ -46,6 +47,20 @@ function renderSearchAgain() {
   });
 }
 
+$(".side-bar-content").click(function(e){
+
+  let index = $(event.currentTarget).attr("data-index")
+  let marker = markers[index];
+
+  infowindow.setContent(marker.content);
+  infowindow.open(map, marker);
+  marker.setIcon('images/green-dot.png');
+  // color the marker.
+  // make pin green.
+
+})
+
+
 function displayResultsScreen() {
   $(".display-start").remove();
   $("#map").removeClass("hidden");
@@ -82,9 +97,9 @@ function renderGoogleMaps(lat, lng) {
 
 ////////////////////// RENDER ////////////////////////
 
-function renderResult(business) {
+function renderResult(business, index) {
   return `
-    <div class="side-bar-content">
+    <div class="side-bar-content" data-index="${index}">
       <h2>${business.name}</h2>
     </div>
     `;
@@ -115,13 +130,13 @@ function createMarker(business) {
     },
     map: map,
     title: business.name,
-    icon: 'images/red-dot.png'
+    icon: 'images/red-dot.png',
+    content: renderContentString(business);
   });
 
-  let contentString = renderContentString(business);
 
   marker.addListener("click", function() {
-    infowindow.setContent(contentString);
+    infowindow.setContent(marker.content);
     infowindow.open(map, marker);
   });
 
@@ -133,6 +148,7 @@ function createMarker(business) {
     marker.setIcon('images/red-dot.png');
   });
 
+   markers.push(marker);
   // $('h2').on('click', function(e) {
   //   console.log('woek');
   //
@@ -150,9 +166,11 @@ function createMarker(business) {
 }
 
 function displayYelpSearchData(data) {
-  var results = data.businesses.map(business => {
+
+  markers = [];
+  var results = data.businesses.map((business, index) => {
     createMarker(business);
-    return renderResult(business);
+    return renderResult(business, index);
   });
 
   $(".text-content").html(results);
