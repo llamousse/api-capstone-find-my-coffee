@@ -14,7 +14,6 @@ function init() {
   });
 }
 
-// Autocomplete search location in form
 function autoComplete() {
   let options = {
     types: ["(regions)"]
@@ -75,7 +74,7 @@ function getDataFromApi(lat, lng, callback) {
 function renderGoogleMaps(lat, lng) {
   let mapOptions = {
     center: { lat: lat, lng: lng },
-    zoom: 12.8,
+    zoom: 14,
     zoomControl: true
   };
   map = new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -115,7 +114,8 @@ function createMarker(business) {
       lng: business.coordinates.longitude
     },
     map: map,
-    title: business.name
+    title: business.name,
+    icon: 'images/red-dot.png'
   });
 
   let contentString = renderContentString(business);
@@ -124,6 +124,29 @@ function createMarker(business) {
     infowindow.setContent(contentString);
     infowindow.open(map, marker);
   });
+
+  marker.addListener('mouseover', function() {
+    marker.setIcon('images/green-dot.png');
+  });
+
+  marker.addListener('mouseout', function() {
+    marker.setIcon('images/red-dot.png');
+  });
+
+  // $('h2').on('click', function(e) {
+  //   console.log('woek');
+  //
+  //   // business.marker[index].setIcon('images/green-dot.png');
+  //   infowindow.setContent(contentString);
+  //   infowindow.open(map, marker);
+  //
+  // });
+
+  // $('.side-bar-content').on('mouseout', function(e) {
+  //   console.log("works");
+  //   marker.setIcon('images/red-dot.png');
+  // });
+
 }
 
 function displayYelpSearchData(data) {

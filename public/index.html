@@ -23,21 +23,21 @@
           <p>Fuel up on caffeine at your nearest coffee shop or search for coffee shops in other cities!</p>
         </header>
 
-        <form action="#" class="search-form" id="search-query-form">
-          <input type="text" placeholder="Enter a city" class="search-query" id="search-term"/>
+        <form action="#" class="search-form" id="search-query-form" method="post">
+          <input type="text" placeholder="Enter a city" class="search-query" id="search-term" required>
           <button type="submit" class="submit-button">Search</button>
         </form>
 
       </div>
     </main>
 
-    <div class="hidden side-bar-content" id="side-bar">
+    <div class="hidden" id="side-bar">
       <h1 class="side-bar-title title-content">find my coffee</h1>
-      <form action="#" class="search-bar-form" id="search-bar-query">
-        <input type="text" placeholder="Enter a city" class="search-bar-query" id="search-term-nav" />
+      <form action="#" class="search-bar-form side-bar-content" id="search-bar-query">
+        <input type="text" placeholder="Enter a city" class="search-bar-query" id="search-term-nav" required>
             <button type="submit" class="submit-button">Search</button>
       </form>
-      <h2 class="text-content"></h2>
+      <h2 class="text-content" id="results-section"></h2>
     </div>
 
     <div class="hidden" id="map"></div>

@@ -1,4 +1,4 @@
-/*** BEGIN DISPLAY - BODY ***/
+/*** BACKGROUND - START PAGE ***/
 
 * {
   box-sizing: border-box;
@@ -85,36 +85,6 @@ form.search-form button:hover {
   cursor: pointer;
 }
 
-/*** INFOWINDOW ***/
-
-div #business-info {
-  align-content: center;
-  width: 310px;
-}
-
-
-#business-info {
-  width: 50%;
-  margin-left: 50%;
-  left: -70px;
-}
-
-.business-pic {
-  width: 100px;
-  display: inline-block;
-  margin-right: 15px;
-  vertical-align: top;
-}
-
-.business-name {
-  margin: 0 auto;
-}
-
-.body-content {
-  display: inline-block;
-  width: 200px;
-}
-
 /*** RESPONSIVE DESIGN ***/
 
 #map {
@@ -198,6 +168,25 @@ html, body {
   #side-bar {
     bottom: 50%;
   }
+
+  div #business-info {
+    width: 250px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .business-pic {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .business-name {
+    font-size: 23px;
+  }
+
 }
 
 @media screen and (min-width: 640px) and (max-width: 727px) {
@@ -230,18 +219,27 @@ html, body {
   .search-bar-form button {
   	margin-top: 8px;
   }
-}
 
-/* fixed position for side bar title & search */
-/* .title-content {
-  position: fixed;
-  font-size: 45px;
-  padding: 10px;
-  margin: 20px 90px 20px 90px;
-}
+  /*** INFOWINDOW ***/
+  
+  div #business-info {
+    width: 304px;
+  }
 
-.search-bar-form {
-  padding: 70px;
-  position; fixed;
-  margin-top: 30px;
-} */
+  .business-pic {
+    width: 100px;
+    vertical-align: top;
+  }
+
+  .business-name {
+    margin: 0 auto;
+  }
+
+  .body-content {
+    display: inline-block;
+    width: 200px;
+    padding: 0px 0px 0px 15px;
+    margin-top: -13px;
+  }
+
+}
