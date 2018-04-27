@@ -160,6 +160,10 @@ html, body {
   cursor: pointer;
 }
 
+#business-info a {
+  color: black;
+}
+
 @media screen and (min-width: 320px) and (max-width: 727px) {
   #map {
     top: 50%;
@@ -211,7 +215,6 @@ html, body {
 
   .text-content {
     padding: 5px 20px 10px 20px;
-    font-family: 'Gothic A1', sans-serif;
     font-size: 11px;
     margin-top: 10px;
   }
@@ -221,7 +224,7 @@ html, body {
   }
 
   /*** INFOWINDOW ***/
-  
+
   div #business-info {
     width: 304px;
   }

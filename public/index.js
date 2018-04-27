@@ -93,16 +93,16 @@ function renderResult(business) {
 function renderContentString(business) {
   return `
       <div id="business-info">
+        <a class="logo" href="${business.url}" target="_blank">
         <h1 class=business-name">${business.name}</h1>
-        <a class="logo" href="${business.url}" onclick="window.open(this.href);
-        return false;" onkeypress="window.open(this.href); return false;">
-        <img class="business-pic" src="${business.image_url}" alt=""></a>
+        <img class="business-pic" src="${business.image_url}" alt="">
         <div class="body-content">
           <p>${business.price}</p>
           <p>Rating: ${business.rating}/5</p>
           <p>Contact Business: ${business.display_phone}</p>
           <p>Address: ${business.location.display_address.join(", ")}</p>
         </div>
+        </a>
       </div>
       `;
 }
