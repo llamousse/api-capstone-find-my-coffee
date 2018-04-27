@@ -164,6 +164,10 @@ html, body {
   color: black;
 }
 
+#business-info .yelp-page {
+  color: blue;
+}
+
 @media screen and (min-width: 320px) and (max-width: 727px) {
   #map {
     top: 50%;

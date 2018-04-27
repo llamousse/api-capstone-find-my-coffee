@@ -54,9 +54,6 @@ $("#side-bar").on ('click', '.side-bar-content', function(event) {
   infowindow.setContent(marker.content);
   infowindow.open(map, marker);
   marker.setIcon('images/green-dot.png');
-  // color the marker.
-  // make pin green.
-
 })
 
 
@@ -115,6 +112,7 @@ function renderContentString(business) {
           <p>Rating: ${business.rating}/5</p>
           <p>Contact Business: ${business.display_phone}</p>
           <p>Address: ${business.location.display_address.join(", ")}</p>
+          <p class="yelp-page">Click to visit Yelp page</p>
         </div>
         </a>
       </div>
@@ -148,20 +146,6 @@ function createMarker(business) {
   });
 
    markers.push(marker);
-  // $('h2').on('click', function(e) {
-  //   console.log('woek');
-  //
-  //   // business.marker[index].setIcon('images/green-dot.png');
-  //   infowindow.setContent(contentString);
-  //   infowindow.open(map, marker);
-  //
-  // });
-
-  // $('.side-bar-content').on('mouseout', function(e) {
-  //   console.log("works");
-  //   marker.setIcon('images/red-dot.png');
-  // });
-
 }
 
 function displayYelpSearchData(data) {
