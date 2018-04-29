@@ -89,7 +89,8 @@ form.search-form button:hover {
 
 #map {
   height: 100%;
-  position: fixed;
+  /* position: fixed; */
+  position: relative;
   overflow: hidden;
 }
 
@@ -169,12 +170,14 @@ html, body {
 }
 
 @media screen and (min-width: 320px) and (max-width: 727px) {
+
   #map {
-    top: 50%;
+    top: 18%;
   }
 
   #side-bar {
-    bottom: 50%;
+    /* bottom: 50%; */
+    width: 100%;
   }
 
   div #business-info {
@@ -195,6 +198,11 @@ html, body {
     font-size: 23px;
   }
 
+  .mobile-only {
+    display: none;
+    transition-timing-function: ease-in;
+  }
+
 }
 
 @media screen and (min-width: 640px) and (max-width: 727px) {
@@ -205,6 +213,7 @@ html, body {
   .search-bar-form input {
     width: 40%;
   }
+
 }
 
 @media screen and (min-width: 728px) {

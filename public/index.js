@@ -3,8 +3,8 @@ const YELP_SEARCH_URL = "http://localhost:3000/asd";
 let map;
 let infoWindow;
 let markers = [];
+
 ////////////////////// SETUP //////////////////////
-// $('#search-term').attr('required', '');
 
 function init() {
   autoComplete();
@@ -39,6 +39,10 @@ function coffeeSearch() {
 
 function renderSearchAgain() {
   $(".search-bar-form").on("click", ".submit-button", function(event) {
+
+    // $('.mobile-only').remove();
+    $('.mobile-only').css("display", "none");
+
     event.preventDefault();
     const queryTarget = $(".search-bar-query");
     const locationString = queryTarget.val();
@@ -47,7 +51,10 @@ function renderSearchAgain() {
   });
 }
 
-$("#side-bar").on ('click', '.side-bar-content', function(event) {
+$("#results-section").on ('click', '.side-bar-content', function(event) {
+
+  $('.mobile-only').css("display", "block");
+
   let index = $(event.currentTarget).attr("data-index");
   let marker = markers[index];
   console.log(index);
@@ -55,7 +62,6 @@ $("#side-bar").on ('click', '.side-bar-content', function(event) {
   infowindow.open(map, marker);
   marker.setIcon('images/green-dot.png');
 })
-
 
 function displayResultsScreen() {
   $(".display-start").remove();
@@ -86,7 +92,8 @@ function renderGoogleMaps(lat, lng) {
   let mapOptions = {
     center: { lat: lat, lng: lng },
     zoom: 14,
-    zoomControl: true
+    zoomControl: true,
+    gestureHandling: 'greedy'
   };
   map = new google.maps.Map(document.getElementById("map"), mapOptions);
 }
