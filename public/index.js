@@ -60,7 +60,8 @@ $("#results-section").on ('click', '.side-bar-content', function(event) {
   console.log(index);
   infowindow.setContent(marker.content);
   infowindow.open(map, marker);
-  marker.setIcon('images/green-dot.png');
+    // marker.setIcon('images/green-dot.png');
+    
 });
 
 $('#arrow-click').on('click', function(event) {
