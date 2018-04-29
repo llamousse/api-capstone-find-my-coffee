@@ -117,6 +117,10 @@ html, body {
   font-size: 45px;
 }
 
+#results-section {
+  cursor: pointer;
+}
+
 .text-content {
   padding: 5px 20px 10px 20px;
   font-family: 'Gothic A1', sans-serif;
@@ -201,6 +205,20 @@ html, body {
   .mobile-only {
     display: none;
     transition-timing-function: ease-in;
+  }
+
+  i {
+    display: none;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    /* display: inline-block; */
+    padding: 3px;
+  }
+
+  .down {
+    /* transform: rotate(45deg); */
+    -webkit-transform: rotate(45deg);
+    margin-left: 50%;
   }
 
 }
