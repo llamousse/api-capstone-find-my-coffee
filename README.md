@@ -21,7 +21,7 @@ Find My Coffee gives users the ability to find coffeeshops in a specific city.
 * Search for coffeeshops in various cities
 * See a list of coffeeshops from the city searched
 * Visualize coffeeshop locations via Google Maps
-* Visit the business Yelp page from results page on a new page
+* Visit the business Yelp page from results page
 
 ## Live Site
 You can experience Find My Coffee at: https://mighty-dawn-17049.herokuapp.com/
