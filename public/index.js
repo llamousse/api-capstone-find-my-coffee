@@ -40,7 +40,7 @@ function coffeeSearch() {
 function renderSearchAgain() {
   $(".search-bar-form").on("click", ".submit-button", function(event) {
 
-    $('.mobile-only').css("display", "none");
+    // $('.mobile-only').css("display", "none");
 
     event.preventDefault();
     const queryTarget = $(".search-bar-query");
@@ -60,8 +60,8 @@ $("#results-section").on ('click', '.side-bar-content', function(event) {
   console.log(index);
   infowindow.setContent(marker.content);
   infowindow.open(map, marker);
-    // marker.setIcon('images/green-dot.png');
-    
+  // marker.setIcon('images/green-dot.png');
+
 });
 
 $('#arrow-click').on('click', function(event) {
