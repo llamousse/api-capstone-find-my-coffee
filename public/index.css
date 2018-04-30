@@ -89,7 +89,6 @@ form.search-form button:hover {
 
 #map {
   height: 100%;
-  /* position: fixed; */
   position: relative;
   overflow: hidden;
 }
