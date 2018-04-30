@@ -10,13 +10,9 @@ Display Results:
 
 ![Find My Coffee Display Page](/public/readme-images/display-page.png)
 
-Search Results on Mobile:
+Search Results on Mobile, Map Display when Location is Clicked:
 
-![Find My Coffee Search Results Mobile](/public/readme-images/display-page-mobile.png)
-
-Map Display when Location is Clicked on Mobile:
-
-![Find My Coffee Display Page Mobile](/public/readme-images/display-page-map-mobile.png)
+![Find My Coffee Search Results Mobile](/public/readme-images/display-page-mobile-map.png)
 
 ## Introduction
 Find My Coffee gives users the ability to find coffeeshops in a specific city.
