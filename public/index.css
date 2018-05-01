@@ -113,7 +113,9 @@ html, body {
 .title-content {
   font-family: 'Sacramento', cursive;
   text-align: center;
-  font-size: 45px;
+  font-size: 35px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 .text-content {
@@ -172,7 +174,7 @@ html, body {
 @media screen and (min-width: 320px) and (max-width: 727px) {
 
   #map {
-    top: 25%;
+    top: 21%;
   }
 
   #side-bar {
@@ -181,6 +183,10 @@ html, body {
 
   .hide-mobile {
     display: none;
+  }
+
+  .search-bar-form input {
+    margin-bottom: 5px;
   }
 
   div #business-info {
