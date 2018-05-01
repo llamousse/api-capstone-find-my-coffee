@@ -20,7 +20,7 @@ app.use(function(req, res, next) {
 });
 
 // http://localhost:3000/asd?latitude=40.712775&longitude=-74.005973
-app.get("/asd", function(req, res) {
+app.get("/yelp-search", function(req, res) {
   console.log(req.query);
   console.log(req.params);
   client
@@ -46,7 +46,7 @@ app.use(express.static(staticPath));
 var port = process.env.PORT || 3000;
 
 app.listen(port, function() {
-  console.log("listening");
+  console.log("listening on port: " + port);
 });
 
 // app.listen(3000, function() {

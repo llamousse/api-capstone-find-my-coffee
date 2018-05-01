@@ -1,4 +1,4 @@
-const YELP_SEARCH_URL = "http://localhost:3000/asd";
+const YELP_SEARCH_URL = "/yelp-search";
 
 let map;
 let infoWindow;
