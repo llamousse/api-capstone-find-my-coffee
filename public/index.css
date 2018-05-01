@@ -68,7 +68,7 @@ form.search-form input:focus {
 
 form.search-form button {
 	height: 45px;
-	width: 100px;
+	/* width: 100px; */
 	border-radius: 5px;
 	margin-top: 10px;
 	font-size: 20px;
