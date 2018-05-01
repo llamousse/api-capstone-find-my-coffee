@@ -172,11 +172,15 @@ html, body {
 @media screen and (min-width: 320px) and (max-width: 727px) {
 
   #map {
-    top: 18%;
+    top: 25%;
   }
 
   #side-bar {
     width: 100%;
+  }
+
+  .hide-mobile {
+    display: none;
   }
 
   div #business-info {

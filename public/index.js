@@ -51,6 +51,7 @@ function renderSearchAgain() {
 $("#results-section").on ('click', '.side-bar-content', function(event) {
 
   $('.mobile-only').css("display", "block");
+  $('#results-section').addClass("hide-mobile");
   $('i').css("display", "inline-block");
 
   let index = $(event.currentTarget).attr("data-index");
@@ -61,9 +62,10 @@ $("#results-section").on ('click', '.side-bar-content', function(event) {
 
 });
 
-$('#arrow-click').on('click', function(event) {
+$('#arrow').on('click', function(event) {
 
   $('.mobile-only').css("display", "none");
+  $('#results-section').removeClass("hide-mobile");
   $('i').css("display", "none");
 
 });
@@ -172,7 +174,7 @@ function displayYelpSearchData(data) {
     $(".text-content").html(results);
   }
   else {
-    $(".text-content").html(`<h2>No results found.</h2>`); 
+    $(".text-content").html(`<h2>No results found.</h2>`);
   }
 }
 
