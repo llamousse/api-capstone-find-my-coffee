@@ -168,7 +168,12 @@ function displayYelpSearchData(data) {
     return renderResult(business, index);
   });
 
-  $(".text-content").html(results);
+  if (results.length > 0) {
+    $(".text-content").html(results);
+  }
+  else {
+    $(".text-content").html(`<h2>No results found.</h2>`); 
+  }
 }
 
 function getLatLong(locationString) {
