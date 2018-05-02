@@ -188,11 +188,14 @@ html, body {
     margin-bottom: 5px;
   }
 
+  h1 .business-name {
+    margin-bottom: 10px;
+  }
+
   div #business-info {
     width: 250px;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    height: auto;
   }
 
   .business-pic {
@@ -200,10 +203,13 @@ html, body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 5px;
+    margin-top: 5px;
   }
 
-  .business-name {
-    font-size: 23px;
+  .body-content p {
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   .mobile-only {
