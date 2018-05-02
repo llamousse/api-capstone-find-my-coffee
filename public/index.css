@@ -125,6 +125,11 @@ html, body {
   cursor: pointer;
 }
 
+.body-content p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .search-bar-form {
   text-align: center;
   padding: 5px;
@@ -205,11 +210,6 @@ html, body {
     margin-right: auto;
     margin-bottom: 5px;
     margin-top: 5px;
-  }
-
-  .body-content p {
-    margin-top: 5px;
-    margin-bottom: 5px;
   }
 
   .mobile-only {
