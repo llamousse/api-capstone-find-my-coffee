@@ -1,5 +1,5 @@
 # Find My Coffee
-Thinkful (https://thinkful.com/) First Capstone Project - a responsive website site that pulls data from a third party API, https://yelp.com and https://maps.google.com, to present search results in a useful way.
+API Capstone Project - a responsive website site that pulls data from a third party API, https://yelp.com and https://maps.google.com, to present search results in a useful way.
 
 ## Screenshots
 Home Page/Display Screen:
@@ -24,7 +24,7 @@ Find My Coffee gives users the ability to find coffeeshops in a specific city.
 * Visit the business Yelp page from results page
 
 ## Live Site
-You can experience Find My Coffee at: https://mighty-dawn-17049.herokuapp.com/
+You can experience Find My Coffee at: https://findmycoffee.herokuapp.com/
 
 ## Technical
 * Fully responsive
